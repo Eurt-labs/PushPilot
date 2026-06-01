@@ -18,7 +18,7 @@ Automatically watches a folder, commits changes, and pushes to GitHub. You can u
 ## How to Setup Git and Github for the first time 
 **You can watch this video for you refernce**: https://youtu.be/wDRoduig_98?si=MxIWlZQn9vYYDedS
 
-### **You can Also follow this Steps**\
+### **You can Also follow this Steps**
 
     Step 1: Install Git
             First, you need the Git version control system installed locally on your machine.\
