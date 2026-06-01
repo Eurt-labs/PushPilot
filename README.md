@@ -20,10 +20,10 @@ Automatically watches a folder, commits changes, and pushes to GitHub. You can u
 
 ### **You can Also follow this Steps**\
 
-####    Step 1: Install Git\
+####    Step 1: Install Git
             First, you need the Git version control system installed locally on your machine.\
                 Download the installer from git-scm.com and run it. The default settings are generally fine for most users if you are not good with the default settings then go and watch youtube videos.\
-####    Step 2: Configure Your Git Identity\
+####    Step 2: Configure Your Git Identity
            Git needs to know who you are so it can properly label your commits. Open your terminal (or Git Bash on Windows) and run these commands, replacing the placeholder text with your actual information:\
             ```bash
             git config --global user.name "Your First and Last Name"
@@ -33,7 +33,7 @@ Automatically watches a folder, commits changes, and pushes to GitHub. You can u
             ```bash\
             git config --global init.defaultBranch main
             ```\
-####    Step 3: Now you have to download the application or GUI/CLI:\
+####    Step 3: Now you have to download the application or GUI/CLI:
             You have to follow the steps below of your version , then after entrying the neccessary details the Application will except you to **sign in** to you **github account** 
               do not worry it just to verify Git to you Github account.\
             After this setup you will not be asked again and again to sign in to you github account.\
