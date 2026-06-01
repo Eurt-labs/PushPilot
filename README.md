@@ -1,6 +1,6 @@
-# Automate Your Github Commits and Push Automatically to Github
- **No More Commands Just Ctrl+S and This Python application**\
-Automatically watches a folder, commits changes, and pushes to GitHub. You can use it as a **Python GUI**, **Python CLI**, or a **Windows EXE** (built by the user if you want).
+# PushPilot - Automate Your GitHub Commits and Push Automatically
+ **No More Commands: Just Ctrl+S and this Python application**\
+Automatically watches a folder, commits changes, and pushes to GitHub. You can use it as a **Python GUI**, **Python CLI**, or a **Windows/Linux standalone app** (built by the user if you want).
 
 ## Links
 - Git: https://git-scm.com/downloads
@@ -117,11 +117,11 @@ You can compile the application yourself to get a standalone executable (`.exe` 
    ```
 2. Build:
    ```bash
-   pyinstaller --onefile autocommit_app.py --name AutoCommitter --distpath "Desktop application" --workpath build --specpath build
+   pyinstaller --onefile autocommit_app.py --name PushPilot --distpath "Desktop application" --workpath build --specpath build
    ```
 3. The EXE will be at:
    ```bash
-   Desktop application\AutoCommitter.exe
+   Desktop application\PushPilot.exe
    ```
 
 ### Step‑by‑step build (Linux)
@@ -133,22 +133,22 @@ You can compile the application yourself to get a standalone executable (`.exe` 
    ```
 3. The standalone executable binary will be at:
    ```bash
-   Desktop application/AutoCommitter
+   Desktop application/PushPilot
    ```
 
 ### Step‑by‑step run (Windows)
-1. GUI: double‑click `Desktop application\AutoCommitter.exe`
+1. GUI: double‑click `Desktop application\PushPilot.exe`
 2. CLI example:
    ```bash
-   "Desktop application\AutoCommitter.exe" setup --remote https://github.com/<user>/<repo>.git
+   "Desktop application\PushPilot.exe" setup --remote https://github.com/<user>/<repo>.git
    ```
 
 ### Step‑by‑step run (Linux)
-1. GUI: double‑click `Desktop application/AutoCommitter` (ensure executable permissions are set: `chmod +x "Desktop application/AutoCommitter"`), or run from a terminal:
+1. GUI: double‑click `Desktop application/PushPilot` (ensure executable permissions are set: `chmod +x "Desktop application/PushPilot"`), or run from a terminal:
    ```bash
-   "./Desktop application/AutoCommitter"
+   "./Desktop application/PushPilot"
    ```
 2. CLI example:
    ```bash
-   "./Desktop application/AutoCommitter" setup --remote https://github.com/<user>/<repo>.git
+   "./Desktop application/PushPilot" setup --remote https://github.com/<user>/<repo>.git
    ```

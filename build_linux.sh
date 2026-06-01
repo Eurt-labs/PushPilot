@@ -9,7 +9,7 @@ YELLOW='\033[1;33m'
 RED='\033[0;31m'
 NC='\033[0m' # No Color
 
-echo -e "${GREEN}=== Auto GitHub Committer Linux Builder ===${NC}"
+echo -e "${GREEN}=== PushPilot Linux Builder ===${NC}"
 
 # Check for python3
 if ! command -v python3 &> /dev/null; then
@@ -48,25 +48,25 @@ if ! command -v pyinstaller &> /dev/null; then
 fi
 
 # Delete existing Linux binary if it exists to avoid conflicts
-if [ -f "Desktop application/AutoCommitter" ]; then
-    echo -e "${YELLOW}Removing existing AutoCommitter binary...${NC}"
-    rm "Desktop application/AutoCommitter"
+if [ -f "Desktop application/PushPilot" ]; then
+    echo -e "${YELLOW}Removing existing PushPilot binary...${NC}"
+    rm "Desktop application/PushPilot"
 fi
 
 echo -e "${GREEN}Building standalone Linux application using PyInstaller...${NC}"
 pyinstaller --onefile autocommit_app.py \
-            --name AutoCommitter \
+            --name PushPilot \
             --distpath "Desktop application" \
             --workpath build \
             --specpath build
 
-if [ -f "Desktop application/AutoCommitter" ]; then
+if [ -f "Desktop application/PushPilot" ]; then
     # Make sure it's executable
-    chmod +x "Desktop application/AutoCommitter"
+    chmod +x "Desktop application/PushPilot"
     echo -e "${GREEN}=== Build Successful! ===${NC}"
-    echo -e "The Linux binary is located at: ${YELLOW}Desktop application/AutoCommitter${NC}"
-    echo -e "To run the GUI: ${GREEN}./Desktop\ application/AutoCommitter${NC}"
-    echo -e "To run the CLI: ${GREEN}./Desktop\ application/AutoCommitter setup --remote <URL>${NC}"
+    echo -e "The Linux binary is located at: ${YELLOW}Desktop application/PushPilot${NC}"
+    echo -e "To run the GUI: ${GREEN}./Desktop\ application/PushPilot${NC}"
+    echo -e "To run the CLI: ${GREEN}./Desktop\ application/PushPilot setup --remote <URL>${NC}"
 else
     echo -e "${RED}Error: Build failed. Standalone binary was not created.${NC}"
     exit 1

@@ -3,7 +3,7 @@ requires = ["setuptools>=68", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "auto-github-committer"
+name = "pushpilot"
 version = "0.1.0"
 description = "Automatic git commit + push with CLI and desktop GUI."
 readme = "README.md"

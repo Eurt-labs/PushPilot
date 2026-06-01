@@ -31,7 +31,7 @@ from autocommitter.core import (
 class AutoCommitApp:
     def __init__(self, root: tk.Tk) -> None:
         self.root = root
-        self.root.title("Auto GitHub Committer - Dhruv")
+        self.root.title("PushPilot - Dhruv")
         self.root.resizable(False, False)
 
         self.folder_var = tk.StringVar()
