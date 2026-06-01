@@ -76,16 +76,16 @@ Automatically watches a folder, commits changes, and pushes to GitHub. You can u
    ```bash
    python autocommit.py setup --remote https://github.com/<user>/<repo>.git
    ```
-3. Start watching:
+3. Start watching( This Will automatically Commit Changes when the Files chanages and changes are saved to file):
    ```bash
    python autocommit.py run
    ```
 
 ### Useful CLI commands
 ```bash
-python autocommit.py run --once
+python autocommit.py run --once 
 python autocommit.py commit
-python autocommit.py --path "C:\path\to\repo" run
+python autocommit.py --path "C:\path\to\repo" run (If you want to Commit Changes from a different Foleder or you want to Setup a Folder other than the Opend Folder)
 ```
 
 ## Version 3: Desktop Application (Windows EXE)
