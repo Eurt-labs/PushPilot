@@ -110,10 +110,14 @@ class AutoCommitApp:
             button_frame, text="Start Watching", command=self._start_watching
         )
         self.start_button.grid(row=0, column=1, padx=4)
+        self.push_button = ttk.Button(
+            button_frame, text="Push Now", command=self._push_now
+        )
+        self.push_button.grid(row=0, column=2, padx=4)
         self.stop_button = ttk.Button(
             button_frame, text="Stop", command=self._stop_watching, state="disabled"
         )
-        self.stop_button.grid(row=0, column=2, padx=4)
+        self.stop_button.grid(row=0, column=3, padx=4)
 
         ttk.Label(
             frame, textvariable=self.status_var, foreground="#444"
@@ -229,6 +233,26 @@ class AutoCommitApp:
         self._watch_thread.start()
         self._set_buttons(running=True)
         self._set_status("Watching for changes...")
+
+    def _push_now(self) -> None:
+        repo_path = self._repo_path()
+        if repo_path is None:
+            return
+        if not is_inside_repo(cwd=repo_path):
+            self._set_status("Not a git repo. Run Setup first.")
+            return
+        config = self._resolve_config(repo_path)
+        if config is None:
+            return
+
+        def work() -> None:
+            committed = commit_cycle(config, cwd=repo_path)
+            if committed:
+                self._set_status("Committed and pushed.")
+            else:
+                self._set_status("No changes to commit.")
+
+        self._run_async(work)
 
     def _resolve_config(self, repo_path: Path) -> Config | None:
         config_path = repo_path / CONFIG_FILE

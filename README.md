@@ -52,6 +52,7 @@ Automatically watches a folder, commits changes, and pushes to GitHub. You can u
    3. Setup your time **interval** (Default=60)
    4. Click **Setup Repo** once.
    5. Click **Start Watching** to auto‑commit and push changes automaticcaly when the script detects any file changes.
+   6. Click **Push Now** to commit and push instantly.
 
 ### GUI controls (what each button/field does)
 | Control | What it does |
@@ -67,6 +68,7 @@ Automatically watches a folder, commits changes, and pushes to GitHub. You can u
 | Allow empty initial commit | Allows an empty first commit if the folder has no files. |
 | Setup Repo | Initializes git, sets remote/branch/user, creates the first commit, pushes, and saves config. |
 | Start Watching | Starts the background watcher that commits + pushes when changes are found. |
+| Push Now | Commits and pushes immediately. |
 | Stop | Stops the watcher. |
 | Status line | Shows the latest action or error from the app. |
 
