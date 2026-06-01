@@ -101,7 +101,7 @@ python autocommit.py --path "C:\path\to\repo" run\
 For Users build the EXE themselves from this source.
 
 
-**Important** You Have to Delete all Files inside Desktop application folder ( if they exists)
+**Important** You Have to Delete Desktop application folder ( if it )
 ### Step‑by‑step build
 1. Install PyInstaller:
    ```bash
