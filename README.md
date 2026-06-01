@@ -87,7 +87,7 @@ Automatically watches a folder, commits changes, and pushes to GitHub. You can u
    python autocommit.py setup --remote https://github.com/<user>/<repo>.git
    ```
    **Replace this link with your Repository link** 
-     https://github.com/<user>/<repo>.git
+     "https://github.com/<user>/<repo>.git"
 3. Start watching( This Will automatically Commit Changes when the Files chanages and changes are saved in file):
    ```bash
    python autocommit.py run
