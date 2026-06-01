@@ -14,6 +14,10 @@ Automatically watches a folder, commits changes, and pushes to GitHub. You can u
 2. Python 3.9+ installed.
 3. GitHub authentication configured (HTTPS + PAT or Git Credential Manager).
 4. A GitHub repository created (use its HTTPS URL for setup).
+5. **(Linux only)** Tkinter installed (required for the GUI or compiling the standalone build).
+   - **Ubuntu/Debian**: `sudo apt install python3-tk`
+   - **Fedora**: `sudo dnf install python3-tkinter`
+   - **Arch Linux**: `sudo pacman -S tk`
 
 ## How to Setup Git and Github for the first time 
 **You can watch this video for you refernce**: https://youtu.be/wDRoduig_98?si=MxIWlZQn9vYYDedS
@@ -101,12 +105,12 @@ python autocommit.py --path "C:\path\to\repo" run\
  (If you want to Commit Changes from a different Foleder or you want to Setup a Folder other than the Opend Folder)
 ```
 
-## Version 3: Desktop Application (If You Don't Trust my Application you can Build the application your Self)
-For Users build the EXE themselves from this source.
+## Version 3: Desktop Application (Windows & Linux)
+You can compile the application yourself to get a standalone executable (`.exe` on Windows, or an executable binary on Linux) that does not require installing Python dependencies to run.
 
+**Important:** You have to delete the `Desktop application` folder (if it exists) before building.
 
-**Important** You Have to Delete Desktop application folder (if it Exist)
-### Step‑by‑step build
+### Step‑by‑step build (Windows)
 1. Install PyInstaller:
    ```bash
    python -m pip install pyinstaller
@@ -119,11 +123,32 @@ For Users build the EXE themselves from this source.
    ```bash
    Desktop application\AutoCommitter.exe
    ```
-   or the dist path you entered in the previous Command
 
-### Step‑by‑step run
+### Step‑by‑step build (Linux)
+1. Make sure `python3-tk` (Tkinter) is installed via your system package manager.
+2. Make `build_linux.sh` executable and run it:
+   ```bash
+   chmod +x build_linux.sh
+   ./build_linux.sh
+   ```
+3. The standalone executable binary will be at:
+   ```bash
+   Desktop application/AutoCommitter
+   ```
+
+### Step‑by‑step run (Windows)
 1. GUI: double‑click `Desktop application\AutoCommitter.exe`
 2. CLI example:
    ```bash
-   Desktop application\AutoCommitter.exe setup --remote https://github.com/<user>/<repo>.git
+   "Desktop application\AutoCommitter.exe" setup --remote https://github.com/<user>/<repo>.git
+   ```
+
+### Step‑by‑step run (Linux)
+1. GUI: double‑click `Desktop application/AutoCommitter` (ensure executable permissions are set: `chmod +x "Desktop application/AutoCommitter"`), or run from a terminal:
+   ```bash
+   "./Desktop application/AutoCommitter"
+   ```
+2. CLI example:
+   ```bash
+   "./Desktop application/AutoCommitter" setup --remote https://github.com/<user>/<repo>.git
    ```
