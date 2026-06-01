@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "auto-github-committer"
+version = "0.1.0"
+description = "Automatic git commit + push with CLI and desktop GUI."
+readme = "README.md"
+requires-python = ">=3.9"
+authors = [{ name = "Dhruv" }]
+
+[project.scripts]
+autocommitter = "autocommitter.app:main"
+autocommitter-cli = "autocommitter.core:cli_main"
+autocommitter-gui = "autocommitter.gui:gui_main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["autocommitter*"]

@@ -1,11 +1,7 @@
 #!/usr/bin/env python3
 from __future__ import annotations
 
-from autocommitter.core import cli_main
-
-
-def main() -> None:
-    cli_main()
+from autocommitter.app import main
 
 
 if __name__ == "__main__":
