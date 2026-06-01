@@ -109,9 +109,10 @@ For Users build the EXE themselves from this source.
    pyinstaller --onefile autocommit_app.py --name AutoCommitter --distpath "Desktop application" --workpath build --specpath build
    ```
 3. The EXE will be at:
+   ```bash
+   Desktop application\AutoCommitter.exe
    ```
-   Desktop application\AutoCommitter.exe or the path you entered in the previous Command
-   ```
+   or the path you entered in the previous Command
 
 ### Step‑by‑step run
 1. GUI: double‑click `Desktop application\AutoCommitter.exe`
