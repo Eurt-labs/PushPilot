@@ -112,7 +112,7 @@ For Users build the EXE themselves from this source.
    ```bash
    Desktop application\AutoCommitter.exe
    ```
-   or the path you entered in the previous Command
+   or the dist path you entered in the previous Command
 
 ### Step‑by‑step run
 1. GUI: double‑click `Desktop application\AutoCommitter.exe`
