@@ -49,3 +49,6 @@ python autocommit_gui.py
 1. Choose the folder you want to watch.
 2. Enter the GitHub remote URL and click **Setup Repo** once.
 3. Click **Start Watching** to auto-commit on changes.
+
+
+HII
