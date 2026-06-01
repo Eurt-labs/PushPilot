@@ -1,31 +1,34 @@
 # Auto GitHub Committer
 
-Automatically watches a folder, commits changes, and pushes to GitHub.
+Automatically watches a folder, commits changes, and pushes to GitHub. You can use it as a **Python GUI**, **Python CLI**, or a **Windows EXE** (built by the user).
 
 ## Links
 - Git: https://git-scm.com/downloads
 - Python: https://www.python.org/downloads/
 - Git Credential Manager: https://github.com/git-ecosystem/git-credential-manager
 - PyInstaller: https://pyinstaller.org/
+- PyPI: https://pypi.org/
 
-## Requirements
-- Git installed and on PATH
-- Python 3.9+
-- GitHub authentication configured (HTTPS + PAT or Git Credential Manager)
+## Requirements (all versions)
+1. Git installed and on PATH.
+2. Python 3.9+ installed.
+3. GitHub authentication configured (HTTPS + PAT or Git Credential Manager).
+4. A GitHub repository created (use its HTTPS URL for setup).
 
-## Python GUI Application (Source)
-Run the GUI directly:
-```bash
-python autocommit_gui.py
-```
+## Version 1: Python GUI Application (Source)
+### Step‑by‑step setup
+1. Open a terminal in this project folder.
+2. Run:
+   ```bash
+   python autocommit_gui.py
+   ```
+3. In the app:
+   1. Click **Browse** and choose the folder you want to watch.
+   2. Enter **Remote URL**.
+   3. Click **Setup Repo** once.
+   4. Click **Start Watching** to auto‑commit and push changes.
 
-### GUI quick start
-1. Click **Browse** and select the folder to watch.
-2. Enter **Remote URL** and click **Setup Repo** once.
-3. Click **Start Watching** to auto‑commit and push on changes.
-4. Click **Stop** to pause.
-
-### GUI controls
+### GUI controls (what each button/field does)
 | Control | What it does |
 | --- | --- |
 | Folder | The local folder to watch and commit from. |
@@ -42,52 +45,70 @@ python autocommit_gui.py
 | Stop | Stops the watcher. |
 | Status line | Shows the latest action or error from the app. |
 
-## Python CLI (Optional)
-### Setup
-```bash
-python autocommit.py setup --remote https://github.com/<user>/<repo>.git
-```
+## Version 2: Python CLI
+### Step‑by‑step setup
+1. Open a terminal in the folder you want to watch.
+2. Run:
+   ```bash
+   python autocommit.py setup --remote https://github.com/<user>/<repo>.git
+   ```
+3. Start watching:
+   ```bash
+   python autocommit.py run
+   ```
 
-### Run (continuous)
-```bash
-python autocommit.py run
-```
-
-### Run once
+### Useful CLI commands
 ```bash
 python autocommit.py run --once
-```
-
-### Commit once
-```bash
 python autocommit.py commit
-```
-
-### Use a specific folder
-```bash
 python autocommit.py --path "C:\path\to\repo" run
 ```
 
-## Desktop Application (EXE)
-Users can build a Windows EXE from this source and run it without Python.
+## Version 3: Desktop Application (Windows EXE)
+Users build the EXE themselves from this source.
 
-### Build the EXE
-```bash
-python -m pip install pyinstaller
-pyinstaller --onefile autocommit_app.py --name AutoCommitter --distpath "Desktop application" --workpath build --specpath build
-```
-The EXE will be created at:
-```
-Desktop application\AutoCommitter.exe
-```
+### Step‑by‑step build
+1. Install PyInstaller:
+   ```bash
+   python -m pip install pyinstaller
+   ```
+2. Build:
+   ```bash
+   pyinstaller --onefile autocommit_app.py --name AutoCommitter --distpath "Desktop application" --workpath build --specpath build
+   ```
+3. The EXE will be at:
+   ```
+   Desktop application\AutoCommitter.exe
+   ```
 
-### Run the EXE
+### Step‑by‑step run
 1. GUI: double‑click `Desktop application\AutoCommitter.exe`
-2. CLI: run from a terminal, for example  
-   `Desktop application\AutoCommitter.exe setup --remote https://github.com/<user>/<repo>.git`
+2. CLI example:
+   ```bash
+   Desktop application\AutoCommitter.exe setup --remote https://github.com/<user>/<repo>.git
+   ```
 
-## Shared Behavior (GUI + CLI)
+## Version 4: Python Package (PyPI)
+### Step‑by‑step publish (for the maintainer)
+1. Build:
+   ```bash
+   python -m pip install build twine
+   python -m build
+   ```
+2. Upload:
+   ```bash
+   setx TWINE_USERNAME __token__
+   setx TWINE_PASSWORD <your-pypi-token>
+   python -m twine upload dist\*
+   ```
+
+### Step‑by‑step install (for users)
+```bash
+pip install auto-github-committer
+autocommitter
+```
+
+## Shared behavior (GUI + CLI)
 - Config file: `.autocommit.json` in the repo folder.
-- Commit message format:  
-  `Auto commit 2026-06-01 10:12:00+0530 | M app.py (+3 -1); A README.md`
-- Both GUI and CLI use the same config and commit logic.
+- Commit message format: `Auto commit <date/time> | <change summary>`.
+- Same logic and settings for GUI, CLI, and EXE.
