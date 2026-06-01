@@ -1,129 +1,199 @@
-# Automate Your Github Commits and Push Automatically to Github
- **No More Commands Just Ctrl+S and This Python application**\
-Automatically watches a folder, commits changes, and pushes to GitHub. You can use it as a **Python GUI**, **Python CLI**, or a **Windows EXE** (built by the user if you want).
+# Auto GitHub Committer
 
-## Links
-- Git: https://git-scm.com/downloads
-- Python: https://www.python.org/downloads/
-- Git Credential Manager: https://github.com/git-ecosystem/git-credential-manager
-- PyInstaller: https://pyinstaller.org/
-- PyPI: https://pypi.org/
+Automatically watches a folder, commits changes, and pushes to GitHub — triggered by file saves. No manual `git add`, `git commit`, or `git push` needed.
 
-## Requirements (all versions)
-1. Git installed and on PATH.
-2. Python 3.9+ installed.
-3. GitHub authentication configured (HTTPS + PAT or Git Credential Manager).
-4. A GitHub repository created (use its HTTPS URL for setup).
+Available as a **Python GUI** (tkinter), **CLI**, or **standalone EXE**.
 
-## How to Setup Git and Github for the first time 
-**You can watch this video for you refernce**: https://youtu.be/wDRoduig_98?si=MxIWlZQn9vYYDedS
+---
 
-### You can Also follow this Steps
+## Requirements
 
-    Step 1: Install Git
-            First, you need the Git version control system installed locally on your machine.
-               Download the installer from git-scm.com and run it. The default settings are generally fine
-               for most users if you are not good with the default settings then go and watch youtube videos.
-    Step 2: Configure Your Git Identity
-           Git needs to know who you are so it can properly label your commits
-           Open your terminal (or Git Bash on Windows) and run these commands
-           replacing the placeholder text with your actual information:
-            ```bash
-            git config --global user.name "Your First and Last Name"
-            git config --global user.email "your_github_email@example.com"
-            ```
-            Pro-tip: It is highly recommended to set your default branch name to main 
-            (instead of the older default master), as this matches GitHub's default settings:
-            ```bash
-            git config --global init.defaultBranch main
-            ```
-    Step 3: Now you have to download the application or GUI/CLI:
-            You have to follow the steps below of your version , 
-            then after entrying the neccessary details the Application will Demand
-            to **sign in** to you **github account** 
-              do not worry it just to verify Git to you Github account.
-            After this setup you will not be asked again and again to sign in to you github account.
+- Git installed and on PATH ([download](https://git-scm.com/downloads))
+- Python 3.9+ ([download](https://www.python.org/downloads/))
+- GitHub authentication configured (HTTPS + PAT or [Git Credential Manager](https://github.com/git-ecosystem/git-credential-manager))
+- A GitHub repository created (use its HTTPS URL)
 
-## Version 1: Python GUI Application (Source)
-### Step‑by‑step setup
-1. Clone this repository to your PC 
-2. Open a terminal in this project folder.
-3. Run:
-   ```bash
-   python autocommit_gui.py
-   ```
-4. In the GUI-app:
-   1. Click **Browse** and choose the folder you want to watch.
-   2. Enter **Remote URL**.
-   3. Setup your time **interval** (Default=60)
-   4. Click **Setup Repo** once.
-   5. Click **Start Watching** to auto‑commit and push changes automaticcaly when the script detects any file changes.
-   6. Click **Push Now** to commit and push instantly.
+---
 
-### GUI controls (what each button/field does)
-| Control | What it does |
-| --- | --- |
-| Folder | The local folder to watch and commit from. |
-| Browse | Opens a folder picker and loads `.autocommit.json` if it exists. |
-| Remote URL | GitHub repository URL used for `origin`. |
-| Branch | Branch name to push to (default `main`). |
-| Interval (sec) | How often the app checks for changes. |
-| Message prefix | Prefix used in auto‑commit messages. |
-| Git user.name | Optional repo‑local git user name (auto‑filled from git config). |
-| Git user.email | Optional repo‑local git user email (auto‑filled from git config). |
-| Allow empty initial commit | Allows an empty first commit if the folder has no files. |
-| Setup Repo | Initializes git, sets remote/branch/user, creates the first commit, pushes, and saves config. |
-| Start Watching | Starts the background watcher that commits + pushes when changes are found. |
-| Push Now | Commits and pushes immediately. |
-| Stop | Stops the watcher. |
-| Status line | Shows the latest action or error from the app. |
+## Quick Start
 
-## Version 2: Python CLI
-### Step‑by‑step setup
-1. Open a terminal in the folder you want to Commit automatically on Any Changes made in File.
-2. Run:
-    **Important** (this is to setup your Repository link)
-   ```bash
-   python autocommit.py setup --remote https://github.com/<user>/<repo>.git
-   ```
-   **Replace this link with your Repository link** 
-     ```https://github.com/<user>/<repo>.git```
-3. Start watching( This Will automatically Commit Changes when the Files chanages and changes are saved in file):
-   ```bash
-   python autocommit.py run
-   ```
+### CLI (run from the folder you want to watch)
 
-### Useful CLI commands
 ```bash
-python autocommit.py run --once 
-python autocommit.py commit
-python autocommit.py --path "C:\path\to\repo" run\
- (If you want to Commit Changes from a different Foleder or you want to Setup a Folder other than the Opend Folder)
+# Install the package (optional but recommended)
+pip install -e .
+
+# Setup your repo URL once
+autocommitter-cli setup --remote https://github.com/<user>/<repo>.git
+
+# Start watching for changes
+autocommitter-cli run
 ```
 
-## Version 3: Desktop Application (If You Don't Trust my Application you can Build the application your Self)
-For Users build the EXE themselves from this source.
+### GUI
 
+```bash
+python autocommit_gui.py
+# Or: autocommitter-gui
+# Or: autocommitter  (launches GUI when no CLI args given)
+```
 
-**Important** You Have to Delete Desktop application folder (if it Exist)
-### Step‑by‑step build
-1. Install PyInstaller:
-   ```bash
-   python -m pip install pyinstaller
-   ```
-2. Build:
-   ```bash
-   pyinstaller --onefile autocommit_app.py --name AutoCommitter --distpath "Desktop application" --workpath build --specpath build
-   ```
-3. The EXE will be at:
-   ```bash
-   Desktop application\AutoCommitter.exe
-   ```
-   or the dist path you entered in the previous Command
+1. Click **Browse** to select your target folder.
+2. Enter the **Remote URL** of your GitHub repo.
+3. Set the polling **Interval** in seconds (default 60).
+4. Click **Setup Repo** to initialize git and configure the remote.
+5. Click **Start Watching** to begin auto-committing on every detected change.
+6. Click **Push Now** for an immediate commit + push.
 
-### Step‑by‑step run
-1. GUI: double‑click `Desktop application\AutoCommitter.exe`
-2. CLI example:
-   ```bash
-   Desktop application\AutoCommitter.exe setup --remote https://github.com/<user>/<repo>.git
-   ```
+---
+
+## Installation
+
+### Run from source (no install)
+
+```bash
+git clone https://github.com/<user>/<repo>.git
+cd <repo>
+python autocommit.py setup --remote <url>
+python autocommit.py run
+```
+
+### Editable install
+
+```bash
+pip install -e .
+# Then use the registered commands:
+autocommitter            # GUI (no args) or CLI (with args)
+autocommitter-cli        # CLI only
+autocommitter-gui        # GUI only
+```
+
+### Standalone EXE
+
+```bash
+pip install pyinstaller
+pyinstaller --onefile autocommit_app.py --name AutoCommitter --distpath "Desktop application" --workpath build --specpath build
+```
+
+The EXE will be at `Desktop application\AutoCommitter.exe`.
+
+---
+
+## CLI Reference
+
+```bash
+# Usage
+python autocommit.py <command> [options]
+autocommitter-cli <command> [options]
+
+# Global options (place before the subcommand)
+--config FILE    Config file path (default: .autocommit.json)
+--path DIR       Repo folder to use (default: current directory)
+```
+
+### `setup`
+
+Initialize a repo, configure the remote, and save the config file.
+
+| Flag | Description |
+| --- | --- |
+| `--remote URL` | GitHub repository URL **(required)** |
+| `--branch NAME` | Branch to push to (default: `main`) |
+| `--interval SEC` | Polling interval in seconds (default: 60) |
+| `--message-prefix STR` | Prefix for auto-commit messages (default: `Auto commit`) |
+| `--name STR` | Git `user.name` for this repo |
+| `--email STR` | Git `user.email` for this repo |
+| `--allow-empty-initial` | Allow an empty first commit if the folder has no files |
+
+### `run`
+
+Continuously poll for changes, commit, and push.
+
+| Flag | Description |
+| --- | --- |
+| `--interval SEC` | Override the polling interval |
+| `--message STR` | Override the commit message |
+| `--once` | Run a single cycle, then exit |
+
+### `commit`
+
+Run a single commit + push cycle and exit.
+
+| Flag | Description |
+| --- | --- |
+| `--message STR` | Override the commit message |
+
+---
+
+## GUI Reference
+
+| Control | Description |
+| --- | --- |
+| **Folder** | Local directory to watch |
+| **Browse** | Folder picker; auto-loads `.autocommit.json` if present |
+| **Remote URL** | GitHub repository HTTPS URL |
+| **Branch** | Branch to push to (default: `main`) |
+| **Interval (sec)** | How often the watcher polls for changes |
+| **Message prefix** | Prefix for auto-generated commit messages |
+| **Git user.name** | Optional repo-local git user name |
+| **Git user.email** | Optional repo-local git user email |
+| **Allow empty initial commit** | Create an empty first commit if no files exist |
+| **Setup Repo** | Initialize git, set remote/branch/user, create initial commit, push, and save config |
+| **Start Watching** | Begin the background poll-and-push loop |
+| **Push Now** | Commit and push immediately |
+| **Stop** | Stop the background watcher |
+| **Status line** | Shows the latest action, error, or confirmation |
+
+---
+
+## How Auto-Commit Messages Work
+
+When changes are detected, the tool generates a message like:
+
+```
+Auto commit 2026-06-01 14:30:00+0530 | M src/index.py (+10 -2); A docs/readme.md (+45 -0)
+```
+
+The format is:
+
+```
+<prefix> <timestamp> | <status> <path> (+<added> -<deleted>); ...
+```
+
+Status characters follow git conventions: `M` (modified), `A` (added), `D` (deleted), `R` (renamed).
+
+---
+
+## Project Structure
+
+```
+autocommitter/
+├── __init__.py
+├── app.py          # Combined CLI + GUI entry point
+├── core.py         # Git operations, config, CLI parser
+└── gui.py          # tkinter GUI (AutoCommitApp class)
+autocommit.py       # CLI script
+autocommit_gui.py   # GUI script
+autocommit_app.py   # Combined script (no args = GUI, args = CLI)
+pyproject.toml      # Package metadata and entry points
+```
+
+---
+
+## First-Time Git Setup
+
+If Git isn't configured yet:
+
+```bash
+git config --global user.name "Your Name"
+git config --global user.email "your_github_email@example.com"
+git config --global init.defaultBranch main
+```
+
+Then authenticate with GitHub using a [personal access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens) or the [Git Credential Manager](https://github.com/git-ecosystem/git-credential-manager).
+
+---
+
+## License
+
+MIT
