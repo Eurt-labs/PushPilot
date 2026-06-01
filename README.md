@@ -73,6 +73,11 @@ Automatically watches a folder, commits changes, and pushes to GitHub. You can u
 ### Step‑by‑step setup
 1. Open a terminal in the folder you want to Commit automatically on Any Changes made in File.
 2. Run:
+    **Important** (this is to setup your Repository link)
+    **Replace this link witht your Repository link** 
+     ```bash
+     https://github.com/<user>/<repo>.git
+      ```
    ```bash
    python autocommit.py setup --remote https://github.com/<user>/<repo>.git
    ```
@@ -88,9 +93,11 @@ python autocommit.py commit
 python autocommit.py --path "C:\path\to\repo" run (If you want to Commit Changes from a different Foleder or you want to Setup a Folder other than the Opend Folder)
 ```
 
-## Version 3: Desktop Application (Windows EXE)
-Users build the EXE themselves from this source.
+## Version 3: Desktop Application (If You Don't Trust my Application you can Build the application your Self)
+For Users build the EXE themselves from this source.
 
+
+**Important** You Have to Delete all Files inside Desktop application folder ( if they exists)
 ### Step‑by‑step build
 1. Install PyInstaller:
    ```bash
@@ -102,7 +109,7 @@ Users build the EXE themselves from this source.
    ```
 3. The EXE will be at:
    ```
-   Desktop application\AutoCommitter.exe
+   Desktop application\AutoCommitter.exe or the path you entered in the previous Command
    ```
 
 ### Step‑by‑step run
