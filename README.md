@@ -74,8 +74,8 @@ Automatically watches a folder, commits changes, and pushes to GitHub. You can u
 1. Open a terminal in the folder you want to Commit automatically on Any Changes made in File.
 2. Run:
     **Important** (this is to setup your Repository link)
-    **Replace this link witht your Repository link** 
-     ```bash
+    **Replace this link with your Repository link** 
+     ```
      https://github.com/<user>/<repo>.git
       ```
    ```bash
