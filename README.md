@@ -1,5 +1,5 @@
 # Auto GitHub Committer
- **No More Commands Just Ctrl+S and This Python application**
+ **No More Commands Just Ctrl+S and This Python application**\
 Automatically watches a folder, commits changes, and pushes to GitHub. You can use it as a **Python GUI**, **Python CLI**, or a **Windows EXE** (built by the user if you want).
 
 ## Links
