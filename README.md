@@ -15,18 +15,42 @@ Automatically watches a folder, commits changes, and pushes to GitHub. You can u
 3. GitHub authentication configured (HTTPS + PAT or Git Credential Manager).
 4. A GitHub repository created (use its HTTPS URL for setup).
 
+## How to Setup Git and Github for the first time 
+**You can watch this video for you refernce**: https://youtu.be/wDRoduig_98?si=MxIWlZQn9vYYDedS
+
+**You can Also follow this Steps**
+    Step 1: Install Git
+        First, you need the Git version control system installed locally on your machine.
+            Download the installer from git-scm.com and run it. The default settings are generally fine for most users if you are not good with the default settings then go and watch you videos.
+    Step 2: Configure Your Git Identity
+        Git needs to know who you are so it can properly label your commits. Open your terminal (or Git Bash on Windows) and run these commands, replacing the placeholder text with your actual information:
+        ```bash
+        git config --global user.name "Your First and Last Name"
+        git config --global user.email "your_github_email@example.com"
+        ```
+        Pro-tip: It is highly recommended to set your default branch name to main (instead of the older default master), as this matches GitHub's default settings:
+        ```bash
+        git config --global init.defaultBranch main
+        ```
+    Step 3: Now you have to download the application or GUI/CLI:
+        You have to follow the steps below of your version , then after entrying the neccessary details the Application will except you to **sign in** to you **github account** 
+        do not worry it just to verify Git to you Github account.
+        After this setup you will not be asked again and again to sign in to you github account.
+
 ## Version 1: Python GUI Application (Source)
 ### Step‑by‑step setup
-1. Open a terminal in this project folder.
-2. Run:
+1. Clone this repository to your PC 
+2. Open a terminal in this project folder.
+3. Run:
    ```bash
    python autocommit_gui.py
    ```
-3. In the app:
+4. In the GUI-app:
    1. Click **Browse** and choose the folder you want to watch.
    2. Enter **Remote URL**.
-   3. Click **Setup Repo** once.
-   4. Click **Start Watching** to auto‑commit and push changes.
+   3. Setup your time **interval** (Default=60)
+   4. Click **Setup Repo** once.
+   5. Click **Start Watching** to auto‑commit and push changes automaticcaly when the script detects any file changes.
 
 ### GUI controls (what each button/field does)
 | Control | What it does |
@@ -47,7 +71,7 @@ Automatically watches a folder, commits changes, and pushes to GitHub. You can u
 
 ## Version 2: Python CLI
 ### Step‑by‑step setup
-1. Open a terminal in the folder you want to watch.
+1. Open a terminal in the folder you want to Commit automatically on Any Changes made in File.
 2. Run:
    ```bash
    python autocommit.py setup --remote https://github.com/<user>/<repo>.git
@@ -87,28 +111,3 @@ Users build the EXE themselves from this source.
    ```bash
    Desktop application\AutoCommitter.exe setup --remote https://github.com/<user>/<repo>.git
    ```
-
-## Version 4: Python Package (PyPI)
-### Step‑by‑step publish (for the maintainer)
-1. Build:
-   ```bash
-   python -m pip install build twine
-   python -m build
-   ```
-2. Upload:
-   ```bash
-   setx TWINE_USERNAME __token__
-   setx TWINE_PASSWORD <your-pypi-token>
-   python -m twine upload dist\*
-   ```
-
-### Step‑by‑step install (for users)
-```bash
-pip install auto-github-committer
-autocommitter
-```
-
-## Shared behavior (GUI + CLI)
-- Config file: `.autocommit.json` in the repo folder.
-- Commit message format: `Auto commit <date/time> | <change summary>`.
-- Same logic and settings for GUI, CLI, and EXE.
