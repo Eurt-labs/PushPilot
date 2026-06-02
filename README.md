@@ -108,7 +108,7 @@ python autocommit.py --path /path/to/folder run
 ## Version 3: Desktop Application (Windows & Linux)
 You can compile the application yourself to get a standalone executable (`.exe` on Windows, or an executable binary on Linux) that does not require installing Python dependencies to run.
 
-**Important:** You have to delete the `Desktop application` folder (if it exists) before building.
+**Important:** You have to delete Everything inside the `Desktop application` folder before building (if it exists).
 
 ### Step‑by‑step build (Windows)
 1. Install PyInstaller:
