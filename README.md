@@ -101,7 +101,7 @@ After this initial setup, you will not be asked to sign in again.
 ```bash
 python autocommit.py run --once 
 python autocommit.py commit
-python autocommit.py --path "C:\path\to\repo" run
+python autocommit.py --path /path/to/folder run
 ```
 *(If you want to Commit Changes from a different Folder or you want to Setup a Folder other than the Opened Folder)*
 
