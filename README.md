@@ -20,33 +20,33 @@ Automatically watches a folder, commits changes, and pushes to GitHub. You can u
    - **Arch Linux**: `sudo pacman -S tk`
 
 ## How to Setup Git and Github for the first time 
-**You can watch this video for you refernce**: https://youtu.be/wDRoduig_98?si=MxIWlZQn9vYYDedS
+**You can watch this video for your reference**: https://youtu.be/wDRoduig_98?si=MxIWlZQn9vYYDedS
 
-### You can Also follow this Steps
+### You can Also follow these Steps
 
-    Step 1: Install Git
-            First, you need the Git version control system installed locally on your machine.
-               Download the installer from git-scm.com and run it. The default settings are generally fine
-               for most users if you are not good with the default settings then go and watch youtube videos.
-    Step 2: Configure Your Git Identity
-           Git needs to know who you are so it can properly label your commits
-           Open your terminal (or Git Bash on Windows) and run these commands
-           replacing the placeholder text with your actual information:
-            ```bash
-            git config --global user.name "Your First and Last Name"
-            git config --global user.email "your_github_email@example.com"
-            ```
-            Pro-tip: It is highly recommended to set your default branch name to main 
-            (instead of the older default master), as this matches GitHub's default settings:
-            ```bash
-            git config --global init.defaultBranch main
-            ```
-    Step 3: Now you have to download the application or GUI/CLI:
-            You have to follow the steps below of your version , 
-            then after entrying the neccessary details the Application will Demand
-            to **sign in** to you **github account** 
-              do not worry it just to verify Git to you Github account.
-            After this setup you will not be asked again and again to sign in to you github account.
+**Step 1: Install Git**
+First, you need the Git version control system installed locally on your machine.
+Download the installer from git-scm.com and run it. The default settings are generally fine for most users. If you are not familiar with the default settings, consider watching YouTube tutorials.
+
+**Step 2: Configure Your Git Identity**
+Git needs to know who you are so it can properly label your commits.
+Open your terminal (or Git Bash on Windows) and run these commands, replacing the placeholder text with your actual information:
+
+```bash
+git config --global user.name "Your First and Last Name"
+git config --global user.email "your_github_email@example.com"
+```
+
+Pro-tip: It is highly recommended to set your default branch name to main (instead of the older default master), as this matches GitHub's default settings:
+
+```bash
+git config --global init.defaultBranch main
+```
+
+**Step 3: Download the application or GUI/CLI:**
+Follow the setup steps below for your version. After entering the necessary details, the application will prompt you to **sign in** to your **GitHub account**.
+Do not worry, it is just to link Git to your GitHub account.
+After this initial setup, you will not be asked to sign in again.
 
 ## Version 1: Python GUI Application (Source)
 ### Step‑by‑step setup
@@ -61,7 +61,7 @@ Automatically watches a folder, commits changes, and pushes to GitHub. You can u
    2. Enter **Remote URL**.
    3. Setup your time **interval** (Default=60)
    4. Click **Setup Repo** once.
-   5. Click **Start Watching** to auto‑commit and push changes automaticcaly when the script detects any file changes.
+   5. Click **Start Watching** to auto‑commit and push changes automatically when the script detects any file changes.
    6. Click **Push Now** to commit and push instantly.
 
 ### GUI controls (what each button/field does)
@@ -101,9 +101,9 @@ Automatically watches a folder, commits changes, and pushes to GitHub. You can u
 ```bash
 python autocommit.py run --once 
 python autocommit.py commit
-python autocommit.py --path "C:\path\to\repo" run\
- (If you want to Commit Changes from a different Foleder or you want to Setup a Folder other than the Opend Folder)
+python autocommit.py --path "C:\path\to\repo" run
 ```
+*(If you want to Commit Changes from a different Folder or you want to Setup a Folder other than the Opened Folder)*
 
 ## Version 3: Desktop Application (Windows & Linux)
 You can compile the application yourself to get a standalone executable (`.exe` on Windows, or an executable binary on Linux) that does not require installing Python dependencies to run.
